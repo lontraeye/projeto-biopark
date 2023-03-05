@@ -1,31 +1,30 @@
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 
 // pages
-import Home from './pages/Home'
-import About from './pages/About'
-import Products from './pages/Products'
-import ProductDetails from './pages/ProductDetails'
+import Home from './pages/home/Home';
+import ApartmentRegister from './pages/apartment/register';
+import BuildingRegister from './pages/building/register';
+import PersonRegister from './pages/person/register';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <nav>
-          <h1>The Ninja Clothing Company</h1>
+          <h1>Instalações do Biopark</h1>
           <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/products">Products</Link>
+          <Link to="/building/list">Instalações</Link>
         </nav>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/about">
-            <About />
+          <Route path="/apartment/register">
+            <ApartmentRegister />
           </Route>
-          <Route path="/products/:id">
-            <ProductDetails />
+          <Route path="/building/register">
+            <BuildingRegister />
           </Route>
-          <Route path="/products">
-            <Products />
+          <Route path="/person/register">
+            <PersonRegister />
           </Route>
         </Switch>
       </BrowserRouter>

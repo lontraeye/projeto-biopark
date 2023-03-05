@@ -5,12 +5,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  *
- * @author Lucas Cardozo Nunes Arruda
+ * @author Lucas Cardozo
  */
 @SpringBootApplication
 public class Startup {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Startup.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Startup.class, args);
+    }
 }

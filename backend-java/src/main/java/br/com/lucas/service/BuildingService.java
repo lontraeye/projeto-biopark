@@ -14,6 +14,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import br.com.lucas.model.repository.BuildingRepository;
+import org.springframework.data.domain.Sort;
 
 /**
  *
@@ -57,7 +58,7 @@ public class BuildingService {
     
     public List<BuildingV1DTO> findAllV1() {
         LOGGER.info("Finding all buildings");
-        return DozerMapper.parseListObjects(buildingRepository.findAll(),
+        return DozerMapper.parseListObjects(buildingRepository.findAll(Sort.by(Sort.Direction.ASC, "name")),
             BuildingV1DTO.class);
     }
 }

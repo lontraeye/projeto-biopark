@@ -32,7 +32,7 @@ public class Person {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "gender", nullable = false, length = 9)
+    @Column(name = "gender", length = 10)
     private String gender;
 
     @Enumerated(EnumType.STRING)

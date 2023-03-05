@@ -4,6 +4,7 @@
  */
 package br.com.lucas.service;
 
+import br.com.lucas.enumeration.PersonTypeEnum;
 import br.com.lucas.exception.ResourceNotFoundException;
 import br.com.lucas.mapper.DozerMapper;
 import br.com.lucas.model.entity.Person;
@@ -14,6 +15,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import br.com.lucas.model.repository.PersonRepository;
+import org.springframework.data.domain.Sort;
 
 /**
  *
@@ -57,7 +59,17 @@ public class PersonService {
     
     public List<PersonV1DTO> findAllV1() {
         LOGGER.info("Finding all persons");
-        return DozerMapper.parseListObjects(personRepository.findAll(),
+        return DozerMapper.parseListObjects(personRepository.findAll(Sort.by(Sort.Direction.ASC, "name")),
             PersonV1DTO.class);
+    }
+    
+    public List<PersonV1DTO> findAllLessorsV1() {
+        LOGGER.info("Finding all lessors");
+        return DozerMapper.parseListObjects(personRepository.findByPersonTypeEnum(PersonTypeEnum.LOCADOR, Sort.by(Sort.Direction.ASC, "name")), PersonV1DTO.class);
+    }
+    
+    public List<PersonV1DTO> findAllTenantsV1() {
+        LOGGER.info("Finding all tenants");
+        return DozerMapper.parseListObjects(personRepository.findByPersonTypeEnum(PersonTypeEnum.LOCATARIO, Sort.by(Sort.Direction.ASC, "name")), PersonV1DTO.class);
     }
 }

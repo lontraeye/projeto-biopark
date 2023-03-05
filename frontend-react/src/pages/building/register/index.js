@@ -1,39 +1,59 @@
-import React, { useState } from 'react';
-import { BUILDING } from '../../../constants/url';
-import { post } from '../../../utils/restUtils';
+import { Button, Divider, TextField } from "@mui/material";
+import React, { useState } from "react";
+import ReactModal from "react-modal";
+import { BUILDING } from "../../../constants/url";
+import { post } from "../../../utils/restUtils";
 
+import "../register/style.css";
 
-function BuildingForm() {
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-  };
-
-  const handleDescriptionChange = (event) => {
-    setDescription(event.target.value);
-  };
-
-  const handleSubmit = async (event) => {
-    await post(BUILDING, {name, description})
-    // You can replace the console.log statement with your own implementation
+function BuildingForm({ isOpen, handleCloseModal, handleSubmit }) {
+  const [name, setName] = useState(null);
+  const [description, setDescription] = useState(null);
+  
+  const handleFormSubmit = async (event) => {
+    await post(BUILDING, { name, description });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Nome:
-        <input type="text" value={name} onChange={handleNameChange} />
-      </label>
-      <br />
-      <label>
-        Descrição:
-        <textarea value={description} onChange={handleDescriptionChange} />
-      </label>
-      <br />
-      <input type="submit" value="Submit" />
-    </form>
+    <ReactModal
+      className="buildingModal"
+      isOpen={isOpen}
+      onRequestClose={handleCloseModal}
+      contentLabel="Example Modal"
+    >
+      <div className="modalHeader">
+        <h2>Cadastre um edificio</h2>
+      </div>
+      <Divider className="divider" />
+      <form onSubmit={handleFormSubmit}>
+        <div className="inputs">
+          <TextField
+            type="text"
+            label="Nome"
+            variant="filled"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            error={!name}
+            helperText={!name ? "Campo obrigatório" : "Campo obrigatório"}
+          />
+          <TextField
+            type="text"
+            label="Descrição"
+            variant="filled"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+        <div className="modalButtons">
+          <Button variant="text" type="submit" disabled={!name}>
+            Enviar
+          </Button>
+          <Button variant="text" onClick={handleCloseModal}>
+            Fechar
+          </Button>
+        </div>
+      </form>
+    </ReactModal>
   );
 }
 

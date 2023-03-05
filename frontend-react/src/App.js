@@ -4,6 +4,7 @@ import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import Home from './pages/home/Home';
 import ApartmentRegister from './pages/apartment/register';
 import BuildingRegister from './pages/building/register';
+import BuildingList from './pages/building/list';
 import PersonRegister from './pages/person/register';
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
           </Route>
           <Route path="/building/register">
             <BuildingRegister />
+          </Route>
+          <Route path="/building/list">
+            <BuildingList />
           </Route>
           <Route path="/person/register">
             <PersonRegister />

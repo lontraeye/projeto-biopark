@@ -1,0 +1,93 @@
+.header{
+	height: 4vh;
+	display: flex;
+    flex-direction: row;
+	align-items: center;
+    justify-content: center;
+	margin-bottom: 2vh;
+}
+.addButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    float: right;
+    margin-left: auto;
+    margin-right: 0;
+    border-style: dotted;
+    border-width: 2px;
+    height: 30px;
+    width: fit-content;
+	cursor: pointer;
+    padding: 5px;
+}
+.addButton a:link, .navigation-div a:visited {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:3px;
+    
+}
+
+.items {
+	display: flex;
+	flex-flow: row wrap;
+	align-content: space-between;
+	justify-content: space-between;
+    height: fit-content;
+}
+
+.itemContainer {
+    height: 250px;
+    border-style: double;
+    border-color: grey;
+    border-width: 2px;
+    margin-top: 2vh;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+.text {
+    margin: 1vh;
+}
+
+.modal-overlay {
+    background: rgba(133, 133, 133, 0.5)    ;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    width: 90%;
+    max-width: 500px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border-style: dashed;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    align-items: left;
+    gap: 20px;
+    margin-top: 2vh;
+
+}
+
+button {
+    padding: 5px;
+    font-size: large;
+    float: right;
+    cursor: pointer;
+}
+
+input {
+    margin-left: 10px;
+}

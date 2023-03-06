@@ -5,32 +5,48 @@ import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import { useState } from "react";
 import BuildingForm from "../register/index";
+import ApartmentForm from "../../apartment/register/index"
 
 Modal.setAppElement("#root");
 
 export default function Buildings() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isBuildingModalOpen, setIsBuildingModalOpen] = useState(false);
+  const [isApartmentModalOpen, setIsApartmentModalOpen] = useState(false);
 
-  function handleOpenModal() {
-    setIsModalOpen(true);
+  function handleOpenBuildingModal() {
+    setIsBuildingModalOpen(true);
   }
 
-  function handleCloseModal() {
-    setIsModalOpen(false);
+  function handleCloseBuildingModal() {
+    setIsBuildingModalOpen(false);
   }
+  function handleOpenApartmentModal() {
+    setIsApartmentModalOpen(true);
+  }
+
+  function handleCloseApartmentModal() {
+    setIsApartmentModalOpen(false);
+  }
+
 
   return (
     <div className="content">
       <div className="header">
         <div className="addButton">
-          <Link onClick={handleOpenModal}>
+          <Link onClick={handleOpenBuildingModal}>
             <p>Adicionar Edificio</p>
             <FaPlusCircle />
           </Link>
         </div>
+        <div className="addButton">
+          <Link onClick={handleOpenApartmentModal}>
+            <p>Adicionar Apartamento</p>
+            <FaPlusCircle />
+          </Link>
+        </div>
       </div>
-      <BuildingForm isOpen={isModalOpen} handleCloseModal={handleCloseModal} />
-
+      <BuildingForm isOpen={isBuildingModalOpen} handleCloseModal={handleCloseBuildingModal} />
+      <ApartmentForm isOpen={isApartmentModalOpen} handleCloseModal={handleCloseApartmentModal} />
       <div className="items">
         {Array.from(Array(20)).map((p) => (
           <div key={p}>

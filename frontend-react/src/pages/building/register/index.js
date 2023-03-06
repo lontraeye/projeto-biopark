@@ -6,7 +6,7 @@ import { post } from "../../../utils/restUtils";
 
 import "../register/style.css";
 
-function BuildingForm({ isOpen, handleCloseModal, handleSubmit }) {
+function BuildingForm({ isOpen, handleCloseModal }) {
   const [name, setName] = useState(null);
   const [description, setDescription] = useState(null);
   

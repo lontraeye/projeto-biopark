@@ -17,7 +17,7 @@ import {
 import { get, put } from "../../../utils/restUtils";
 import { FormLabel } from "react-bootstrap";
 
-import "../modal/style.css"
+import "../modal/style.css";
 
 const ApartmentFormModal = ({ isOpen, handleCloseModal, idApartment }) => {
     const [lessors, setLessors] = useState([]);
@@ -71,76 +71,82 @@ const ApartmentFormModal = ({ isOpen, handleCloseModal, idApartment }) => {
             className="apartmentModal"
             isOpen={isOpen}
             onRequestClose={handleCloseModal}
-            contentLabel="Example Modal"
         >
-            <div className="modalHeader">
-                <h3>Cadastre um apartamento</h3>
-            </div>
-            <Divider className="divider" />
-            <form onSubmit={handleSubmit} className="inputs">
-                <FormLabel>Valor do aluguel</FormLabel>
-                <TextField
-                    type="number"
-                    variant="filled"
-                    value={rentValue}
-                    onChange={(e) => setRentValue(e.target.value)}
-                    error={!rentValue}
-                    helperText={
-                        !rentValue ? "Campo obrigatório" : "Campo obrigatório"
-                    }
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start">$</InputAdornment>
-                        ),
-                    }}
-                />
-                <FormControl helperText="Campo obrigatório">
-                    <FormLabel>Locador</FormLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        variant="filled"
-                        id="demo-simple-select"
-                        onChange={(e) => setLessor(e.target.value)}
-                        value={lessor}
-                        MenuProps={{
-                            disableScrollLock: true,
-                        }}
-                    >
-                        {lessors.map((lessorValue, index) => (
-                            <MenuItem key={index} value={lessorValue}>
-                                {lessorValue.name}
-                            </MenuItem>
-                        ))}
-                    </Select>
-                </FormControl>
-                <FormControl>
-                <FormLabel>Valor do aluguel</FormLabel>
-
-                    <Select
-                        labelId="demo-simple-select-label"
-                        variant="filled"
-                        id="demo-simple-select"
-                        onChange={(e) => setTenant(e.target.value)}
-                        value={tenant}
-                        helperText="Campo obrigatório"
-                        MenuProps={{
-                            disableScrollLock: true,
-                        }}
-                    >
-                        {tenants.map((tenantValue, index) => (
-                            <MenuItem key={index} value={tenantValue}>
-                                {tenantValue.name}
-                            </MenuItem>
-                        ))}
-                    </Select>
-                </FormControl>
-                <div className="modalButtons">
-                    <Button type="submit">Submit</Button>
-                    <Button variant="text" onClick={handleCloseModal}>
-                        Fechar
-                    </Button>
+                <div className="modalHeader">
+                    <h3>Cadastre um apartamento</h3>
                 </div>
-            </form>
+                <Divider className="divider" />
+                <form onSubmit={handleSubmit} className="form">
+                    <FormControl helperText="Campo obrigatório">
+                        <FormLabel>Valor do aluguel</FormLabel>
+                        <TextField
+                            type="number"
+                            variant="filled"
+                            value={rentValue}
+                            onChange={(e) => setRentValue(e.target.value)}
+                            error={!rentValue}
+                            helperText={
+                                !rentValue
+                                    ? "Campo obrigatório"
+                                    : "Campo obrigatório"
+                            }
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        $
+                                    </InputAdornment>
+                                ),
+                            }}
+                        >
+                            {" "}
+                            <FormLabel>Valor do aluguel</FormLabel>
+                        </TextField>
+                        <FormLabel>Locador</FormLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            variant="filled"
+                            id="demo-simple-select"
+                            onChange={(e) => setLessor(e.target.value)}
+                            value={lessor}
+                            MenuProps={{
+                                disableScrollLock: true,
+                            }}
+                        >
+                            {lessors.map((lessorValue, index) => (
+                                <MenuItem key={index} value={lessorValue}>
+                                    {lessorValue.name}
+                                </MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
+                    <FormControl>
+                        <FormLabel>Locatário</FormLabel>
+
+                        <Select
+                            labelId="demo-simple-select-label"
+                            variant="filled"
+                            id="demo-simple-select"
+                            onChange={(e) => setTenant(e.target.value)}
+                            value={tenant}
+                            helperText="Campo obrigatório"
+                            MenuProps={{
+                                disableScrollLock: true,
+                            }}
+                        >
+                            {tenants.map((tenantValue, index) => (
+                                <MenuItem key={index} value={tenantValue}>
+                                    {tenantValue.name}
+                                </MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
+                    <div className="modalButtons">
+                        <Button type="submit">Submit</Button>
+                        <Button variant="text" onClick={handleCloseModal}>
+                            Fechar
+                        </Button>
+                    </div>
+                </form>
         </ReactModal>
     );
 };

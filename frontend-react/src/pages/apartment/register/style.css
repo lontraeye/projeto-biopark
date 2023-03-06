@@ -8,6 +8,7 @@
   }
   
   .apartmentModal {
+    position: fixed;
     display: flex;
     flex-direction: column;
     background-color: rgba(246, 243, 243, 1);

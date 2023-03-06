@@ -3,6 +3,7 @@ import {
     Divider,
     FormControl,
     FormHelperText,
+    InputAdornment,
     InputLabel,
     MenuItem,
     Select,
@@ -114,7 +115,7 @@ const ApartmentForm = ({ isOpen, handleCloseModal }) => {
                     }
                 />
                 <TextField
-                    type="text"
+                    type="number"
                     label="Valor do aluguel"
                     variant="filled"
                     value={rentValue}
@@ -123,6 +124,11 @@ const ApartmentForm = ({ isOpen, handleCloseModal }) => {
                     helperText={
                         !rentValue ? "Campo obrigatório" : "Campo obrigatório"
                     }
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">$</InputAdornment>
+                        ),
+                    }}
                 />
                 <FormControl helperText="Campo obrigatório">
                     <InputLabel id="demo-multiple-name-label">
@@ -134,6 +140,9 @@ const ApartmentForm = ({ isOpen, handleCloseModal }) => {
                         id="demo-simple-select"
                         onChange={handleChangeLessor}
                         value={lessors.name}
+                        MenuProps={{
+                            disableScrollLock: true,
+                        }}
                     >
                         {lessors.map((lessorValue, index) => (
                             <MenuItem key={index} value={index}>
@@ -154,6 +163,9 @@ const ApartmentForm = ({ isOpen, handleCloseModal }) => {
                         onChange={handleChangeTenant}
                         value={tenants.name}
                         helperText="Campo obrigatório"
+                        MenuProps={{
+                            disableScrollLock: true,
+                        }}
                     >
                         {tenants.map((tenantValue, index) => (
                             <MenuItem key={index} value={index}>
@@ -173,6 +185,9 @@ const ApartmentForm = ({ isOpen, handleCloseModal }) => {
                         id="demo-simple-select"
                         onChange={handleChangeBuilding}
                         value={buildings.name}
+                        MenuProps={{
+                            disableScrollLock: true,
+                        }}
                     >
                         {buildings.map((buildingValue, index) => (
                             <MenuItem key={index} value={index}>

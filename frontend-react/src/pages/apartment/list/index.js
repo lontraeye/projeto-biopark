@@ -89,6 +89,11 @@ export default function ApartmentsList() {
                                                     ? "Alugado"
                                                     : "Disponivel"}
                                             </Typography>
+                                            <Typography
+                                            variant="body2"
+                                        >
+                                            Locatario: {apartment.tenant?.name ?? "N/A"}
+                                        </Typography>
                                         </div>
                                     </CardContent>
                                     <CardActions className="buttons">

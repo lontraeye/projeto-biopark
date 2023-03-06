@@ -57,7 +57,6 @@ const ApartmentFormModal = ({ isOpen, handleCloseModal, idApartment }) => {
     };
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
         await put(APARTMENT, {
             ...apartment,
             rentValue,

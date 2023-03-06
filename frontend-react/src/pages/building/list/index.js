@@ -111,7 +111,7 @@ export default function Buildings() {
                                                 <li key={apartment.name}>
                                                     <div className="apartmentWrapper">
                                                         <h3>
-                                                            Apartamento:
+                                                            Apartamento:{" "}
                                                             {apartment.name}
                                                         </h3>
                                                         <p>

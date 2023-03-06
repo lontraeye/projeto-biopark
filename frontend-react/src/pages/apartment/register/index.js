@@ -71,7 +71,6 @@ const ApartmentForm = ({ isOpen, handleCloseModal }) => {
     };
 
     const handleChangeBuilding = (event) => {
-        console.log(event.target.value);
         setBuilding(event.target.value);
     };
 

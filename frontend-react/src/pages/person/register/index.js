@@ -33,7 +33,7 @@ const PersonForm = ({ isOpen, handleCloseModal }) => {
         >
             <form onSubmit={handleSubmit} className="form">
                 <div className="modalHeader">
-                    <h3>Cadastre um apartamento</h3>
+                    <h3>Cadastre uma pessoa</h3>
 
                     <Divider className="divider" />
                 </div>
@@ -49,14 +49,14 @@ const PersonForm = ({ isOpen, handleCloseModal }) => {
 
                 <FormControl helperText="Campo obrigatório">
                     <InputLabel id="demo-multiple-name-label">
-                        Locador
+                        Gênero
                     </InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
                         variant="filled"
                         id="demo-simple-select"
                         onChange={(e) => setGender(e.target.value)}
-                        value={"Indefinido"}
+                        value={gender}
                         MenuProps={{
                             disableScrollLock: true,
                         }}

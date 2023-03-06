@@ -1,10 +1,19 @@
-import { Button } from "@mui/material";
+import {
+    Button,
+    Divider,
+    FormControl,
+    FormHelperText,
+    InputLabel,
+    MenuItem,
+    Select,
+    TextField,
+} from "@mui/material";
 import React, { useState } from "react";
 import ReactModal from "react-modal";
 import { PERSON } from "../../../constants/url";
 import { post } from "../../../utils/restUtils";
 
-import "../../building/register/style.css";
+import "../../person/register/style.css";
 
 const PersonForm = ({ isOpen, handleCloseModal }) => {
     const [name, setName] = useState("");
@@ -22,44 +31,68 @@ const PersonForm = ({ isOpen, handleCloseModal }) => {
             onRequestClose={handleCloseModal}
             contentLabel="Example Modal"
         >
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Nome:
-                    <input
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                </label>
-                <br />
-                <label>
-                    Gênero:
-                    <select
-                        value={gender}
-                        onChange={(e) => setGender(e.target.value)}
-                    >
-                        <option value={null}>Indefinido</option>
-                        <option value="Masculino">Masculino</option>
-                        <option value="Feminino">Feminino</option>
-                    </select>
-                </label>
-                <br />
+            <form onSubmit={handleSubmit} className="form">
+                <div className="modalHeader">
+                    <h3>Cadastre um apartamento</h3>
 
-                <label>
-                    Tipo:
-                    <select
-                        value={personTypeEnum}
-                        onChange={(e) => setPersonTypeEnum(e.target.value)}
+                    <Divider className="divider" />
+                </div>
+                <TextField
+                    type="text"
+                    label="Nome"
+                    variant="filled"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    error={!name}
+                    helperText={!name ? "Campo obrigatório" : ""}
+                />
+
+                <FormControl helperText="Campo obrigatório">
+                    <InputLabel id="demo-multiple-name-label">
+                        Locador
+                    </InputLabel>
+                    <Select
+                        labelId="demo-simple-select-label"
+                        variant="filled"
+                        id="demo-simple-select"
+                        onChange={(e) => setGender(e.target.value)}
+                        value={"Indefinido"}
+                        MenuProps={{
+                            disableScrollLock: true,
+                        }}
                     >
-                        <option value="LOCADOR">Locador</option>
-                        <option value="LOCATARIO">Locatario</option>
-                    </select>
-                </label>
-                <br />
-                <Button type="submit">Enviar</Button>
-                <Button variant="text" onClick={handleCloseModal}>
-                    Fechar
-                </Button>
+                        <MenuItem value={"Indefinido"}>Indefinido</MenuItem>
+                        <MenuItem value={"Masculino"}>Masculino</MenuItem>
+                        <MenuItem value={"Feminino"}>Feminino</MenuItem>
+                    </Select>
+                    <FormHelperText>Campo obrigatório</FormHelperText>
+                </FormControl>
+
+                <FormControl helperText="Campo obrigatório">
+                    <InputLabel id="demo-multiple-name-label">
+                        Locador
+                    </InputLabel>
+                    <Select
+                        labelId="demo-simple-select-label"
+                        variant="filled"
+                        id="demo-simple-select"
+                        onChange={(e) => setPersonTypeEnum(e.target.value)}
+                        value={personTypeEnum}
+                        MenuProps={{
+                            disableScrollLock: true,
+                        }}
+                    >
+                        <MenuItem value={"LOCADOR"}>Locador</MenuItem>
+                        <MenuItem value={"LOCATARIO"}>Locatario</MenuItem>
+                    </Select>
+                    <FormHelperText>Campo obrigatório</FormHelperText>
+                </FormControl>
+                <div className="buttons">
+                    <Button type="submit">Enviar</Button>
+                    <Button variant="text" onClick={handleCloseModal}>
+                        Fechar
+                    </Button>
+                </div>
             </form>
         </ReactModal>
     );

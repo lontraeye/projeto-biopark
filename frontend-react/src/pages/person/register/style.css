@@ -1,0 +1,16 @@
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+}
+
+.modalHeader {
+    display: flex;
+    flex-direction: column;
+}

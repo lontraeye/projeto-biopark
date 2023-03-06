@@ -9,7 +9,7 @@ import {
     Select,
     TextField,
 } from "@mui/material";
-import "../register/style.css";
+import "../../apartment/register/style.css";
 import React, { useEffect, useState } from "react";
 import ReactModal from "react-modal";
 import {
@@ -77,7 +77,7 @@ const ApartmentForm = ({ isOpen, handleCloseModal }) => {
 
     return (
         <ReactModal
-            className="apartmentModal"
+            className="apartmentRegisterModal"
             isOpen={isOpen}
             onRequestClose={handleCloseModal}
         >

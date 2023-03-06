@@ -3,17 +3,14 @@ import {
     Divider,
     FormControl,
     InputAdornment,
-    InputLabel,
     MenuItem,
     Select,
     TextField,
 } from "@mui/material";
-import "../register/style.css";
 import React, { useEffect, useState } from "react";
 import ReactModal from "react-modal";
 import {
     APARTMENT,
-    BUILDING,
     PERSON_LESSOR,
     PERSON_TENANT,
 } from "../../../constants/url";

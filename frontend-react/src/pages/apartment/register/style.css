@@ -1,18 +1,23 @@
+.modalRegister {
+  height: 100%;
+  width: 90%;
+}
+
 .modalHeader {
     display: flex;
     flex-direction: row;
     float: left;
     align-self: start;
     color: rgba(23, 22, 22, 0.35);
-  }
-  
-  .apartmentModal {
+}
+
+.apartmentRegisterModal {
     display: flex;
     flex-direction: column;
     background-color: rgba(246, 243, 243, 1);
     border-radius: 5px;
-    width: 40vw;
-    height: 90vh;
+    width: 30vw;
+    height: 83vh;
     align-items: center;
     padding: 20px;
     justify-content: center;
@@ -21,24 +26,25 @@
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  }
-  
-  .modalButtons {
+}
+
+.modalButtons {
     display: flex;
     flex-direction: row;
     justify-content: right;
     gap: 5%;
-  }
-  
-  .inputs {
-      width: 100% !important;
+}
+
+.inputs {
+    width: 100% !important;
     display: flex;
     flex-direction: column;
-      height: fit-content;
-      gap: 3vh;
-  }
-  
-  .divider {
+    height: fit-content;
+    justify-content: center;
+    gap: 3vh;
+    margin-top: 15px;
+}
+
+.divider {
     width: 100%;
-  }
-  
+}

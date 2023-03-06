@@ -1,0 +1,15 @@
+.card {
+    height: 25vh;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.wrapper {
+    width: 100%;
+    height: fit-content;
+    border-radius: 5px;
+    border-style: dashed;
+    border-width: 2px;
+    border-color: #ececec;
+    min-height: 5vh;
+}

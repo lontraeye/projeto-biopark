@@ -104,7 +104,7 @@ const ApartmentForm = ({ isOpen, handleCloseModal }) => {
                     onChange={(e) => setDescription(e.target.value)}
                 />
                 <TextField
-                    type="text"
+                    type="number"
                     label="Número"
                     variant="filled"
                     value={number}
@@ -143,6 +143,7 @@ const ApartmentForm = ({ isOpen, handleCloseModal }) => {
                         MenuProps={{
                             disableScrollLock: true,
                         }}
+                        defaultValue={0}
                     >
                         {lessors.map((lessorValue, index) => (
                             <MenuItem key={index} value={index}>
@@ -173,7 +174,6 @@ const ApartmentForm = ({ isOpen, handleCloseModal }) => {
                             </MenuItem>
                         ))}
                     </Select>
-                    <FormHelperText>Campo obrigatório</FormHelperText>
                 </FormControl>
                 <FormControl>
                     <InputLabel id="demo-multiple-name-label">
@@ -188,6 +188,7 @@ const ApartmentForm = ({ isOpen, handleCloseModal }) => {
                         MenuProps={{
                             disableScrollLock: true,
                         }}
+                        defaultValue={0}
                     >
                         {buildings.map((buildingValue, index) => (
                             <MenuItem key={index} value={index}>

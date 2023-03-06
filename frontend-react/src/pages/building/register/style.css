@@ -1,44 +1,49 @@
 .modalHeader {
-  display: flex;
-  flex-direction: row;
-  float: left;
-  align-self: start;
-  margin-top: -20px;
-  color: rgba(23, 22, 22, 0.35);
+    display: flex;
+    flex-direction: row;
+    float: left;
+    align-self: start;
+    margin-top: -20px;
+    color: rgba(23, 22, 22, 0.35);
 }
 
 .buildingModal {
-  display: flex;
-  flex-direction: column;
-  background-color: rgba(246, 243, 243, 1);
-  border-radius: 5px;
-  width: 30vw;
-  height: fit-content;
-  align-items: center;
-  padding: 20px;
-  justify-content: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(246, 243, 243, 1);
+    border-radius: 5px;
+    width: 20vw !important;
+    height: fit-content;
+    align-items: center;
+    padding: 20px;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .modalButtons {
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
-  gap: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    gap: 5%;
+    margin-top: 10px;
 }
 
 .inputs {
-    width: 30vw;
-  display: flex;
-  flex-direction: column;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     height: fit-content;
     gap: 3vh;
 }
 
 .divider {
-  width: 100%;
+    width: 100%;
+}
+
+.form {
+  width: 90%;
 }

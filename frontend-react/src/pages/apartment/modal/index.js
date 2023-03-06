@@ -45,8 +45,8 @@ const ApartmentFormModal = ({ isOpen, handleCloseModal, idApartment }) => {
     const updateApartment = async () => {
         let apartmentTemp = await get(`${APARTMENT}/${idApartment}`);
         setRentValue(apartmentTemp.rentValue);
-        setLessor(lessors.filter((l) => l.id == apartmentTemp.lessor.id)[0]);
-        setTenant(tenants.filter((t) => t.id == apartmentTemp.lessor.id)[0]);
+        setLessor(lessors.filter((l) => l.id === apartmentTemp.lessor.id)[0]);
+        setTenant(tenants.filter((t) => t.id === apartmentTemp.lessor.id)[0]);
         setApartment(apartmentTemp);
     };
     const initLists = async () => {

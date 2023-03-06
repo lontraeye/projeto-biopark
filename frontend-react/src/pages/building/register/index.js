@@ -4,7 +4,7 @@ import ReactModal from "react-modal";
 import { BUILDING } from "../../../constants/url";
 import { post } from "../../../utils/restUtils";
 
-import "../register/style.css";
+import "../../building/register/style.css";
 
 function BuildingForm({ isOpen, handleCloseModal }) {
   const [name, setName] = useState(null);
@@ -25,7 +25,7 @@ function BuildingForm({ isOpen, handleCloseModal }) {
         <h2>Cadastre um edificio</h2>
       </div>
       <Divider className="divider" />
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleFormSubmit} className="form">
         <div className="inputs">
           <TextField
             type="text"

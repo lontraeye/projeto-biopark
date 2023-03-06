@@ -1,7 +1,7 @@
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 
 // pages
-import Home from './pages/home/Home';
+import Home from './pages/home/index';
 import ApartmentRegister from './pages/apartment/register';
 import BuildingRegister from './pages/building/register';
 import BuildingList from './pages/building/list';

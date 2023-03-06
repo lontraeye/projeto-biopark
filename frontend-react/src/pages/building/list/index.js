@@ -32,10 +32,7 @@ export default function Buildings() {
         let apartmentsTemp = await get(APARTMENT);
         setApartments(apartmentsTemp);
     };
-
-    console.log(apartments);
-    console.log(buildings);
-
+    
     function handleOpenBuildingModal() {
         setIsBuildingModalOpen(true);
     }

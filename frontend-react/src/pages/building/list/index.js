@@ -10,12 +10,14 @@ import { APARTMENT, BUILDING } from "../../../constants/url";
 import { get } from "../../../utils/restUtils";
 import { FormLabel } from "react-bootstrap";
 import { Box } from "@mui/system";
+import PersonForm from "../../person/register";
 
 Modal.setAppElement("#root");
 
 export default function Buildings() {
     const [isBuildingModalOpen, setIsBuildingModalOpen] = useState(false);
     const [isApartmentModalOpen, setIsApartmentModalOpen] = useState(false);
+    const [isPersonModalOpen, setIsPersonModalOpen] = useState(false);
     const [buildings, setBuildings] = useState([]);
     const [apartments, setApartments] = useState([]);
 
@@ -32,7 +34,7 @@ export default function Buildings() {
         let apartmentsTemp = await get(APARTMENT);
         setApartments(apartmentsTemp);
     };
-    
+
     function handleOpenBuildingModal() {
         setIsBuildingModalOpen(true);
     }
@@ -46,6 +48,14 @@ export default function Buildings() {
 
     function handleCloseApartmentModal() {
         setIsApartmentModalOpen(false);
+    }
+
+    function handleOpenPersonModal() {
+        setIsPersonModalOpen(true);
+    }
+
+    function handleClosePersonModal() {
+        setIsPersonModalOpen(false);
     }
 
     return (
@@ -63,6 +73,12 @@ export default function Buildings() {
                         <FaPlusCircle />
                     </Link>
                 </div>
+                <div className="addButton">
+                    <Link onClick={handleOpenPersonModal}>
+                        <p>Adicionar Pessoa</p>
+                        <FaPlusCircle />
+                    </Link>
+                </div>
             </div>
             <BuildingForm
                 isOpen={isBuildingModalOpen}
@@ -71,6 +87,10 @@ export default function Buildings() {
             <ApartmentForm
                 isOpen={isApartmentModalOpen}
                 handleCloseModal={handleCloseApartmentModal}
+            />
+            <PersonForm
+                isOpen={isPersonModalOpen}
+                handleCloseModal={handleClosePersonModal}
             />
             <div className="itemSpace">
                 <div className="items">
@@ -90,10 +110,15 @@ export default function Buildings() {
                                             .map((apartment) => (
                                                 <li key={apartment.name}>
                                                     <div className="apartmentWrapper">
-                                                    <h3>Apartamento: {apartment.name}</h3>
-                                                    <p>
-                                                        {apartment.description}
-                                                    </p>
+                                                        <h3>
+                                                            Apartamento:
+                                                            {apartment.name}
+                                                        </h3>
+                                                        <p>
+                                                            {
+                                                                apartment.description
+                                                            }
+                                                        </p>
                                                     </div>
                                                 </li>
                                             ))}
